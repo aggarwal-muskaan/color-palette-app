@@ -217,7 +217,7 @@ const seedColors = [
   {
     paletteName: "Flat UI Colors French",
     id: "flat-ui-colors-french",
-    emoji: "",
+    emoji: "🇫🇷",
     colors: [
       { name: "FlatFlesh", color: "#fad390" },
       { name: "MelonMelody", color: "#f8c291" },

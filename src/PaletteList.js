@@ -44,7 +44,7 @@ class PaletteList extends Component {
           </nav>
           <div className={classes.palettes}>
             {palettes.map((p) => (
-              <Link to={`/palette/${p.id}`}>
+              <Link to={`/palette/${p.id}`} key={p.id}>
                 <MiniPalette {...p} />
               </Link>
             ))}
