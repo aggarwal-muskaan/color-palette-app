@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Snackbar from "@material-ui/core/Snackbar";
@@ -33,7 +34,7 @@ class Navbar extends Component {
     return (
       <header className="Navbar">
         <div className="logo">
-          <a href="/">reactcolorpicker</a>
+          <Link to="/">reactcolorpicker</Link>
         </div>
         <div className="slider-container">
           <span>Level: {level}</span>
@@ -56,10 +57,10 @@ class Navbar extends Component {
         </div>
 
         <Snackbar
-          anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
           open={open}
           //   time for popping
-          autoHideDuration={3000}
+          autoHideDuration={3500}
           message={
             <span id="message-id">
               Format Changed To {format.toUpperCase()}

@@ -43,8 +43,10 @@ export default class Palette extends Component {
 
         {/* footer */}
         <footer className="Palette-footer">
-          {paletteName}
-          <span className="emoji">{emoji}</span>
+          <h4 className="palette-name">{paletteName}</h4>
+          <span className="emoji" aria-label={`${emoji} flag`}>
+            {emoji}
+          </span>
         </footer>
       </div>
     );
