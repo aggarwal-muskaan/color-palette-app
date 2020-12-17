@@ -31,6 +31,8 @@ export default class Palette extends Component {
         paletteId={id}
         colorId={clr.id}
         yourUrl={`/palette/${id}/${clr.id}`}
+        //same as seemoreLink={true}
+        seemoreLink
       />
     ));
     return (
