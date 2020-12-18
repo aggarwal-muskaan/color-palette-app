@@ -30,24 +30,26 @@ class Navbar extends Component {
 
   render() {
     let { format, open } = this.state;
-    const { level, changeLevel } = this.props;
+    const { level, changeLevel, showAllColors } = this.props;
     return (
       <header className="Navbar">
         <div className="logo">
           <Link to="/">reactcolorpicker</Link>
         </div>
-        <div className="slider-container">
-          <span>Level: {level}</span>
-          <div className="slider">
-            <Slider
-              defaultValue={level}
-              min={100}
-              max={900}
-              step={50}
-              onChange={changeLevel}
-            />
+        {showAllColors && (
+          <div className="slider-container">
+            <span>Level: {level}</span>
+            <div className="slider">
+              <Slider
+                defaultValue={level}
+                min={100}
+                max={900}
+                step={50}
+                onChange={changeLevel}
+              />
+            </div>
           </div>
-        </div>
+        )}
         <div className="select-container">
           <Select value={format} onChange={this.handleFormatChange}>
             <MenuItem value="hex">HEX </MenuItem>
@@ -58,6 +60,7 @@ class Navbar extends Component {
 
         <Snackbar
           anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          // If true, Snackbar is open
           open={open}
           //   time for popping
           autoHideDuration={3500}

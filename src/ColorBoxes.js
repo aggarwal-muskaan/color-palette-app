@@ -32,11 +32,14 @@ export default class ColorBoxes extends Component {
           <CopyToClipboard
             text={color}
             onCopy={() =>
-              this.setState({ copied: true }, () => {
-                setTimeout(() => {
-                  this.setState({ copied: false });
-                }, 1500);
-              })
+              this.setState(
+                { copied: true }
+                // , () => {
+                //   setTimeout(() => {
+                //     this.setState({ copied: false });
+                //   }, 1500);
+                // }
+              )
             }
           >
             <button>Copy</button>

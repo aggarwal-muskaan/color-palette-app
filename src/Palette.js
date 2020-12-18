@@ -39,6 +39,7 @@ export default class Palette extends Component {
       <div className="Palette">
         {/* header */}
         <Navbar
+          showAllColors
           level={level}
           changeLevel={this.sliderChange}
           handleChange={this.colorFormatChange}
