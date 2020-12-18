@@ -8,6 +8,16 @@
   margin-bottom: -4px;
 }
 
+.SingleColorShades .ColorBoxes {
+  width: calc(100% / 6);
+  height: calc(100% / 3);
+}
+
+.go-back.ColorBoxes {
+  background-color: black;
+  position: relative;
+}
+
 .ColorBoxes-copy span {
   position: absolute;
   left: 0;
@@ -20,7 +30,8 @@
   text-transform: uppercase;
 }
 
-.ColorBoxes-copy button {
+.ColorBoxes-copy button,
+.go-back-button {
   background-color: rgba(255, 255, 255, 0.3);
   width: 100px;
   height: 30px;
@@ -29,16 +40,20 @@
   left: 50%;
   top: 50%;
   margin: -15px 0 0 -50px;
-  opacity: 0;
   outline: none;
   border: none;
   font-size: 1rem;
   display: inline-block;
   line-height: 30px;
-  /* color: white; */
-  color: black;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  /* color: black; */
 }
 
+.ColorBoxes-copy button {
+  opacity: 0;
+}
 .ColorBoxes:hover .ColorBoxes-copy button {
   opacity: 1;
   transition: 0.5s;
