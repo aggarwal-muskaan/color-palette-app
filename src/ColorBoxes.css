@@ -1,36 +1,37 @@
-.ColorBoxes {
+/* .ColorBoxes {
   width: 20%;
   height: 25%;
   display: inline-block;
   cursor: pointer;
   position: relative;
   /* doubt...why this number=3.5px? */
-  margin-bottom: -4px;
-}
+/* margin-bottom: -4px;
+} */
 
 .SingleColorShades .ColorBoxes {
-  width: calc(100% / 6);
-  height: calc(100% / 3);
+  /* display: inline-block; */
+  display: inline;
+  /* margin-bottom: -4px; */
+  /* width: calc(100% / 6);
+  height: calc(100% / 3); */
 }
-
 .go-back.ColorBoxes {
   background-color: black;
   position: relative;
 }
 
-.ColorBoxes-copy span {
+/* .ColorBoxes-copy span {
   position: absolute;
   left: 0;
   bottom: 0;
   font-size: 12px;
   /* width: 100%; */
-  color: black;
+/* color: black;
   padding: 10px;
   letter-spacing: 1px;
   text-transform: uppercase;
-}
+}  */
 
-.ColorBoxes-copy button,
 .go-back-button {
   background-color: rgba(255, 255, 255, 0.3);
   width: 100px;
@@ -45,28 +46,28 @@
   font-size: 1rem;
   display: inline-block;
   line-height: 30px;
-  color: white;
+  /* color: white; */
   text-decoration: none;
   text-align: center;
-  /* color: black; */
+  color: black;
 }
 
-.ColorBoxes-copy button {
+/* .ColorBoxes-copy button {
   opacity: 0;
-}
-.ColorBoxes:hover .ColorBoxes-copy button {
+} */
+/* .ColorBoxes:hover .ColorBoxes-copy button {
   opacity: 1;
   transition: 0.5s;
-}
+} */
 
-.ColorBoxes .light-text {
+/* .ColorBoxes .light-text {
   color: white;
 }
 .ColorBoxes .dark-text {
   color: rgba(0, 0, 0, 0.5);
-}
+} */
 
-.see-more {
+/* .see-more {
   position: absolute;
   right: 0;
   font-size: 12px;
@@ -79,7 +80,7 @@
   text-align: center;
   background-color: rgba(255, 255, 255, 0.3);
   text-transform: uppercase;
-}
+} */
 
 .copy-overlay {
   opacity: 0;
