@@ -1,4 +1,4 @@
-export default styles = {
+const styles = {
   root: {
     backgroundColor: "white",
     border: "1px solid black",
@@ -12,7 +12,7 @@ export default styles = {
   },
   colors: {
     backgroundColor: "#dae1e4",
-    height: "150px",
+    height: "125px",
     width: "100%",
     borderRadius: "5px",
     overflow: "hidden",
@@ -37,6 +37,9 @@ export default styles = {
     display: "inline-block",
     margin: "0 auto",
     position: "relative",
-    marginBottom: "-3.5px",
+    marginBottom: "-4px",
   },
 };
+export default styles;
+
+// export default {};

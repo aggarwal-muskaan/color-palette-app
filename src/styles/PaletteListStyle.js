@@ -1,4 +1,4 @@
-export default styles = {
+const styles = {
   root: {
     backgroundColor: "blue",
     height: "100vh",
@@ -12,6 +12,7 @@ export default styles = {
     alignItems: "flex-start",
     flexDirection: "column",
     flexWrap: "wrap",
+    marginBottom: "2rem",
   },
   nav: {
     display: "flex",
@@ -21,8 +22,11 @@ export default styles = {
   palettes: {
     boxSizing: "border-box",
     width: "100%",
+    height: "80%",
     display: "grid",
     gridTemplateColumns: "repeat(3, 30%)",
     gridGap: "5%",
+    // overflowX: "hidden",
   },
 };
+export default styles;

@@ -1,6 +1,6 @@
 import chroma from "chroma-js";
 
-export default style = {
+const styles = {
   ColorBoxes: {
     width: (props) => (props.seemoreLink ? "20%" : "calc(100%/6)"),
     height: (props) => (props.seemoreLink ? "25%" : "calc(100%/3)"),
@@ -62,7 +62,6 @@ export default style = {
   },
   boxContent: {
     position: "absolute",
-    width: "100%",
     left: "0px",
     bottom: "0px",
     padding: "10px",
@@ -84,6 +83,9 @@ export default style = {
     transform: "scale(50)",
     zIndex: "10",
     position: "absolute",
+    // overflow: "hidden",
+    // width: "100vw",
+    // height: "100vh",
   },
   copyMessage: {
     position: "fixed",
@@ -122,3 +124,4 @@ export default style = {
     transitionDelay: "0.3s",
   },
 };
+export default styles;

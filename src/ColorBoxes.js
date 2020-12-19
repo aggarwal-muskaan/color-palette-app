@@ -42,14 +42,11 @@ class ColorBoxes extends Component {
           <CopyToClipboard
             text={color}
             onCopy={() =>
-              this.setState(
-                { copied: true }
-                // , () => {
-                //   setTimeout(() => {
-                //     this.setState({ copied: false });
-                //   }, 1500);
-                // }
-              )
+              this.setState({ copied: true }, () => {
+                setTimeout(() => {
+                  this.setState({ copied: false });
+                }, 2000);
+              })
             }
           >
             <button className={classes.copyButton}>Copy</button>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ColorBoxes from "./ColorBoxes";
 // import "./Palette.css";
 import Navbar from "./Navbar";
+import PaletteFooter from "./PaletteFooter";
 import { withStyles } from "@material-ui/styles";
 import styles from "./styles/PaletteStyle";
 
@@ -55,12 +56,7 @@ class Palette extends Component {
         </div>
 
         {/* footer */}
-        <footer className="Palette-footer">
-          <h4 className="palette-name">{paletteName}</h4>
-          <span className="emoji" aria-label={`${emoji} flag`}>
-            {emoji}
-          </span>
-        </footer>
+        <PaletteFooter paletteName={paletteName} emoji={emoji} />
       </div>
     );
   }

@@ -1,4 +1,4 @@
-export default styles = {
+const styles = {
   Palette: {
     height: "100vh",
     display: "flex",
@@ -8,13 +8,13 @@ export default styles = {
     height: "90%",
   },
   goBack: {
-    width: "20%",
-    height: "50%",
+    width: "calc(100%/6)",
+    height: "calc(100%/3)",
     margin: "0 auto",
     display: "inline-block",
     position: "relative",
     cursor: "pointer",
-    marginBottom: "-3.5px",
+    marginBottom: "-4px",
     opacity: 1,
     backgroundColor: "black",
     "& a": {
@@ -38,3 +38,4 @@ export default styles = {
     },
   },
 };
+export default styles;
