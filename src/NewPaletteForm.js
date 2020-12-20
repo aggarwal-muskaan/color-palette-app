@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -8,8 +9,14 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
 import MenuIcon from "@material-ui/icons/Menu";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+
+import { SketchPicker } from "react-color";
+import { ChromePicker } from "react-color";
 
 const drawerWidth = 400;
 
@@ -108,6 +115,20 @@ class NewPaletteForm extends Component {
             <Typography variant="h6" color="inherit" noWrap>
               Create New Palette
             </Typography>
+            <Button
+              variant="contained"
+              color="default"
+              startIcon={<ArrowBackIcon />}
+            >
+              Go Back
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              startIcon={<FavoriteIcon />}
+            >
+              Save Palette
+            </Button>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -125,6 +146,24 @@ class NewPaletteForm extends Component {
             </IconButton>
           </div>
           <Divider />
+          <Typography variant="h3">Choose a Color</Typography>
+          <div>
+            <Button variant="outlined" size="medium" color="primary">
+              Random Color
+            </Button>
+            <Button variant="outlined" size="medium" color="secondary">
+              Clear Palette
+            </Button>
+          </div>
+          <SketchPicker
+            onChangeComplete={(newColor) => console.log(newColor)}
+          ></SketchPicker>
+          <ChromePicker
+            onChangeComplete={(newColor) => console.log(newColor)}
+          />
+          <Button variant="contained" size="large" color="secondary">
+            ADD COLOR
+          </Button>
         </Drawer>
         <main
           className={classNames(classes.content, {
