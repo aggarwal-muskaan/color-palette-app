@@ -18,6 +18,8 @@ const styles = {
     display: "flex",
     width: "100%",
     justifyContent: "space-between",
+    alignItems: "center",
+    "& h1,& a": { color: "white" },
   },
   palettes: {
     boxSizing: "border-box",
