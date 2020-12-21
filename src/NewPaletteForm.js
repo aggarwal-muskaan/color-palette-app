@@ -90,7 +90,6 @@ class NewPaletteForm extends Component {
       id: paletteId,
       emoji: "🎗",
     };
-
     this.props.savePalette(newPalette);
     this.props.history.push("/");
   };
@@ -107,6 +106,13 @@ class NewPaletteForm extends Component {
       currentColor: "",
     });
   };
+
+  //delete color
+  deleteColor(clrName) {
+    const colors = this.state.arr.filter((ob) => ob.name !== clrName);
+    this.setState({ arr: colors });
+  }
+
   render() {
     const { classes } = this.props;
     const {
@@ -147,7 +153,7 @@ class NewPaletteForm extends Component {
             </Button>
             <ValidatorForm onSubmit={this.handleSavePalette}>
               <TextValidator
-                label="PALETTE NAME"
+                label="Palette Name"
                 name="userPaletteName"
                 value={userPaletteName}
                 onChange={this.handleNameChange}
@@ -234,7 +240,11 @@ class NewPaletteForm extends Component {
         >
           <div className={classes.drawerHeader} />
           {arr.map((clr) => (
-            <DraggableColorBox clr={clr} />
+            <DraggableColorBox
+              key={clr.name}
+              clr={clr}
+              handleClick={() => this.deleteColor(clr.name)}
+            />
           ))}
         </main>
       </div>
