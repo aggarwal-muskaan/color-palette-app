@@ -26,6 +26,7 @@ class App extends Component {
     });
   }
 
+  //adding new palettes crated by user to seedColors(array)
   addNewPalette(newPalette) {
     this.setState({ myPalettes: [...this.state.myPalettes, newPalette] });
   }
@@ -43,6 +44,7 @@ class App extends Component {
             render={(routeProps) => (
               <NewPaletteForm
                 {...routeProps}
+                prevPalettes={myPalettes}
                 savePalette={this.addNewPalette}
               />
             )}
