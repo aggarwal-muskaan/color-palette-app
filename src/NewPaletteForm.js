@@ -16,9 +16,10 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 
 import { SketchPicker } from "react-color";
+import { arrayMove } from "react-sortable-hoc";
 // import { ChromePicker } from "react-color";
 
-import DraggableColorBox from "./DraggableColorBox";
+import DraggableColorList from "./DraggableColorList";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 
 import styles from "./styles/NewPaletteFormStyle";
@@ -60,6 +61,7 @@ class NewPaletteForm extends Component {
       // this.state.arr.every(({ color }) => color !== value.______)
     );
   }
+
   //here binding is not done in Constructor
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -108,10 +110,17 @@ class NewPaletteForm extends Component {
   };
 
   //delete color
-  deleteColor(clrName) {
+  deleteColor = (clrName) => {
     const colors = this.state.arr.filter((ob) => ob.name !== clrName);
     this.setState({ arr: colors });
-  }
+  };
+
+  //function for drag/drop and saving their indices
+  onSortEnd = ({ oldIndex, newIndex }) => {
+    this.setState(({ arr }) => ({
+      arr: arrayMove(arr, oldIndex, newIndex),
+    }));
+  };
 
   render() {
     const { classes } = this.props;
@@ -239,13 +248,13 @@ class NewPaletteForm extends Component {
           })}
         >
           <div className={classes.drawerHeader} />
-          {arr.map((clr) => (
-            <DraggableColorBox
-              key={clr.name}
-              clr={clr}
-              handleClick={() => this.deleteColor(clr.name)}
-            />
-          ))}
+
+          <DraggableColorList
+            colors={arr}
+            deleteColor={this.deleteColor}
+            axis="xy"
+            onSortEnd={this.onSortEnd}
+          />
         </main>
       </div>
     );
