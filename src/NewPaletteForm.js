@@ -21,68 +21,7 @@ import { SketchPicker } from "react-color";
 import DraggableColorBox from "./DraggableColorBox";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 
-const drawerWidth = 400;
-const navHeight = 64;
-
-const styles = (theme) => ({
-  root: {
-    display: "flex",
-    height: "100vh",
-  },
-  appBar: {
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  menuButton: {
-    marginLeft: 12,
-    marginRight: 20,
-  },
-  hide: {
-    display: "none",
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-  },
-  drawerPaper: {
-    width: drawerWidth,
-  },
-  drawerHeader: {
-    display: "flex",
-    alignItems: "center",
-    padding: "0 8px",
-    ...theme.mixins.toolbar,
-    justifyContent: "flex-end",
-  },
-  content: {
-    height: `calc(100vh-${navHeight}px)`,
-    // height: "100%",
-    flexGrow: 1,
-    padding: theme.spacing.unit * 3,
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: -drawerWidth,
-  },
-  contentShift: {
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-    marginLeft: 0,
-  },
-});
+import styles from "./styles/NewPaletteFormStyle";
 
 class NewPaletteForm extends Component {
   constructor(props) {
@@ -103,11 +42,14 @@ class NewPaletteForm extends Component {
         ({ name }) => name.toLowerCase() !== value.toLowerCase()
       )
     );
-    ValidatorForm.addValidationRule("isColorUnique", (value) =>
-      this.state.arr.every(({ color }) => color !== this.state.currentColor)
+    ValidatorForm.addValidationRule(
+      "isColorValueUnique",
+      (value) =>
+        this.state.arr.every(({ color }) => color !== this.state.currentColor)
+      // this.state.arr.every(({ color }) => color !== value)
     );
   }
-
+  //here binding is not done in Constructor
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };
@@ -123,6 +65,22 @@ class NewPaletteForm extends Component {
   //sync colorpicker with "add button"
   handleColorChange = (ob) => {
     this.setState({ currentColor: ob.hex });
+  };
+
+  //add new palette & pass to parent component
+  handleSavePalette = () => {
+    let paletteName = " My Palette ".trim();
+    let paletteId = paletteName.toLowerCase().replace(/ /g, "-");
+
+    const newPalette = {
+      paletteName: paletteName,
+      colors: this.state.arr,
+      id: paletteId,
+      emoji: "🎗",
+    };
+
+    this.props.savePalette(newPalette);
+    this.props.history.push("/");
   };
 
   // update array of colors
@@ -173,6 +131,7 @@ class NewPaletteForm extends Component {
               variant="contained"
               color="secondary"
               startIcon={<FavoriteIcon />}
+              onClick={this.handleSavePalette}
             >
               Save Palette
             </Button>
@@ -214,7 +173,11 @@ class NewPaletteForm extends Component {
             <TextValidator
               value={currentColorName}
               onChange={this.handleNameChange}
-              validators={["required", "isColorNameUnique", "isColorUnique"]}
+              validators={[
+                "required",
+                "isColorNameUnique",
+                "isColorValueUnique",
+              ]}
               errorMessages={[
                 "Color name is required.",
                 "Color name must be unique.",

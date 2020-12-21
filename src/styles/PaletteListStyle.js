@@ -13,6 +13,7 @@ const styles = {
     flexDirection: "column",
     flexWrap: "wrap",
     marginBottom: "2rem",
+    // height: "100%",
   },
   nav: {
     display: "flex",
