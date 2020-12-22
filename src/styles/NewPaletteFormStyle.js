@@ -20,6 +20,8 @@ const styles = (theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
+  // Toolbar: { display: "flex", width: "100vw", justifyContent: "space-around" },
+
   menuButton: {
     marginLeft: 12,
     marginRight: 20,
