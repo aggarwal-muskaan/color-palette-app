@@ -111,7 +111,7 @@ class NewPaletteForm extends Component {
         <SavePaletteForm
           open={open}
           handleSavePalette={this.handleSavePalette}
-          classes={classes}
+          // classes={classes}
           prevPalettes={prevPalettes}
           handleDrawerOpen={this.handleDrawerOpen}
         />
@@ -130,33 +130,38 @@ class NewPaletteForm extends Component {
             </IconButton>
           </div>
           <Divider />
-          <Typography variant="h3">Choose a Color</Typography>
-          <div>
-            <Button
-              variant="outlined"
-              size="medium"
-              // color={paletteLimit ? "default" : "primary"}
-              color="primary"
-              disabled={paletteLimit}
-              onClick={this.generateRandomColor}
-            >
-              Random Color
-            </Button>
-            <Button
-              variant="outlined"
-              size="medium"
-              color="secondary"
-              onClick={this.clearPalette}
-            >
-              Clear Palette
-            </Button>
+
+          <div className={classes.container}>
+            <Typography variant="h3">Choose a Color</Typography>
+            <div className={classes.buttons}>
+              <Button
+                variant="outlined"
+                size="medium"
+                className={classes.button}
+                // color={paletteLimit ? "default" : "primary"}
+                color="primary"
+                disabled={paletteLimit}
+                onClick={this.generateRandomColor}
+              >
+                Random Color
+              </Button>
+              <Button
+                className={classes.button}
+                variant="outlined"
+                size="medium"
+                color="secondary"
+                onClick={this.clearPalette}
+              >
+                Clear Palette
+              </Button>
+            </div>
+            <ColorPickerForm
+              paletteLimit={paletteLimit}
+              addColor={this.addColor}
+              // handleColorChange={this.handleColorChange}
+              colors={arr}
+            />
           </div>
-          <ColorPickerForm
-            paletteLimit={paletteLimit}
-            addColor={this.addColor}
-            // handleColorChange={this.handleColorChange}
-            colors={arr}
-          />
         </Drawer>
 
         <main
