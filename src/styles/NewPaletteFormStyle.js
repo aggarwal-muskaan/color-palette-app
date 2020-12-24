@@ -55,9 +55,12 @@ const styles = (theme) => ({
   },
   buttons: {
     width: "100%",
+    // alignItems: "center",
+    display: "flex",
+    justifyContent: "space-between",
   },
   button: {
-    width: "50%",
+    width: "48%",
   },
 });
 

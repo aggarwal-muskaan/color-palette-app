@@ -31,7 +31,7 @@ class NewPaletteForm extends Component {
       // userPaletteName: "",
       arr: this.props.prevPalettes[3].colors.slice(2),
       // structure => arr: [{ color: "", name: "" }]
-      open: false,
+      open: true,
     };
   }
 
