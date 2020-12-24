@@ -8,6 +8,9 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
+import { Picker } from "emoji-mart";
+import "emoji-mart/css/emoji-mart.css";
+
 class DialogSavePalette extends Component {
   constructor(props) {
     super(props);
@@ -56,6 +59,8 @@ class DialogSavePalette extends Component {
               Please enter a name for your new beautiful palette. Make sure it's
               unique!
             </DialogContentText>
+
+            <Picker />
 
             <ValidatorForm onSubmit={() => handleSavePalette(userPaletteName)}>
               <TextValidator
