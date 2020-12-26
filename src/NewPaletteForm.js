@@ -45,16 +45,10 @@ class NewPaletteForm extends Component {
   };
 
   // !add new palette & pass to parent component
-  handleSavePalette = (name) => {
-    let paletteName = name.trim();
-    let paletteId = paletteName.toLowerCase().replace(/ /g, "-");
-
-    const newPalette = {
-      paletteName: paletteName,
-      colors: this.state.arr,
-      id: paletteId,
-      emoji: "🎗",
-    };
+  handleSavePalette = (newPalette) => {
+    let paletteId = newPalette.paletteName.toLowerCase().replace(/ /g, "-");
+    newPalette.id = paletteId;
+    newPalette.colors = this.state.arr;
     this.props.savePalette(newPalette);
     this.props.history.push("/");
   };

@@ -18,9 +18,10 @@ class DialogSavePalette extends Component {
       userPaletteName: "",
       //   open: this.props.showDialog,
       open: true,
+      openEmojiDialog: false,
     };
   }
-  // ? const [open, setOpen] = React.useState(false);     //REACT HOOKS
+  // ?const [open, setOpen] = React.useState(false);     //REACT HOOKS
 
   componentDidMount() {
     //validating palette names
@@ -35,6 +36,9 @@ class DialogSavePalette extends Component {
     this.setState({ open: true });
   };
 
+  showEmoPicker = () => {
+    this.setState({ openEmojiDialog: true, open: false });
+  };
   // handleClose = () => {
   //   this.setState({ open: false });
   // };
@@ -43,11 +47,26 @@ class DialogSavePalette extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  savePalette = (userEmo) => {
+    const newPalette = {
+      paletteName: this.state.userPaletteName.trim(),
+      emoji: userEmo.native,
+    };
+    this.props.handleSavePalette(newPalette);
+  };
+
   render() {
-    const { userPaletteName, open } = this.state;
-    const { handleSavePalette, closeModal } = this.props;
+    const { userPaletteName, open, openEmojiDialog } = this.state;
+    const { closeModal } = this.props;
     return (
       <div>
+        {/* emoji dialog */}
+        <Dialog onClose={closeModal} open={openEmojiDialog}>
+          <DialogTitle id="form-dialog-title">Pick A Palette Emoji</DialogTitle>
+          <Picker title="Choose an emoji" onSelect={this.savePalette} />
+        </Dialog>
+
+        {/* form dialog */}
         <Dialog
           open={open}
           onClose={closeModal}
@@ -60,9 +79,7 @@ class DialogSavePalette extends Component {
               unique!
             </DialogContentText>
 
-            <Picker />
-
-            <ValidatorForm onSubmit={() => handleSavePalette(userPaletteName)}>
+            <ValidatorForm onSubmit={this.showEmoPicker}>
               <TextValidator
                 label="Palette Name"
                 name="userPaletteName"
