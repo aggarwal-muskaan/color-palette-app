@@ -1,5 +1,7 @@
-const drawerWidth = 400;
-const navHeight = 64;
+import { DRAWER_WIDTH, NAV_HEIGHT } from "../constants";
+
+const drawerWidth = DRAWER_WIDTH;
+const navHeight = NAV_HEIGHT;
 
 const styles = (theme) => ({
   root: {
