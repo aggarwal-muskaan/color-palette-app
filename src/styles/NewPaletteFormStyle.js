@@ -21,7 +21,7 @@ const styles = (theme) => ({
   },
   drawerHeader: {
     display: "flex",
-    // width: "100%",
+    width: "100%",
     alignItems: "center",
     padding: "0 8px",
     ...theme.mixins.toolbar,

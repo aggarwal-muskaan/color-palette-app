@@ -5,9 +5,10 @@ const styles = {
     borderRadius: "5px",
     padding: "0.5rem",
     position: "relative",
+    cursor: "pointer",
     overflow: "hidden",
-    "&:hover": {
-      cursor: "pointer",
+    "&:hover svg": {
+      opacity: 1,
     },
   },
   colors: {
@@ -30,6 +31,18 @@ const styles = {
   emoji: {
     marginLeft: "0.5rem",
     fontSize: "1.5rem",
+  },
+  deleteIcon: {
+    color: "white",
+    backgroundColor: "black",
+    width: "20px",
+    height: "20px",
+    position: "absolute",
+    right: 0,
+    top: 0,
+    padding: "10px",
+    zIndex: 10,
+    opacity: 0,
   },
   miniColor: {
     height: "25%",

@@ -19,6 +19,7 @@ class App extends Component {
       myPalettes: localPalettes || seedColors,
     };
     this.addNewPalette = this.addNewPalette.bind(this);
+    this.deletePalette = this.deletePalette.bind(this);
   }
 
   findPalette(id) {
@@ -34,11 +35,21 @@ class App extends Component {
     );
   }
 
-  //adding new palettes crated by user to seedColors(array)
+  //adding new palettes created by user to seedColors(array)
   addNewPalette(newPalette) {
     this.setState(
       { myPalettes: [...this.state.myPalettes, newPalette] },
       //once state is updated,then callback func will be called
+      this.storeInLocalStorage
+    );
+  }
+
+  // deleting palettes and saving the result to localStorage
+  deletePalette(id) {
+    this.setState(
+      (st) => ({
+        myPalettes: st.myPalettes.filter((palette) => palette.id !== id),
+      }),
       this.storeInLocalStorage
     );
   }
@@ -65,7 +76,11 @@ class App extends Component {
             exact
             path="/"
             render={(routeProps) => (
-              <PaletteList palettes={myPalettes} {...routeProps} />
+              <PaletteList
+                palettes={myPalettes}
+                deletePalette={this.deletePalette}
+                {...routeProps}
+              />
             )}
           />
 
