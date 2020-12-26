@@ -14,8 +14,9 @@ class App extends Component {
   // add constructor to init state with seedColors
   constructor(props) {
     super(props);
+    const localPalettes = JSON.parse(window.localStorage.getItem("myPalettes"));
     this.state = {
-      myPalettes: seedColors,
+      myPalettes: localPalettes || seedColors,
     };
     this.addNewPalette = this.addNewPalette.bind(this);
   }
@@ -26,9 +27,20 @@ class App extends Component {
     });
   }
 
+  storeInLocalStorage() {
+    window.localStorage.setItem(
+      "myPalettes",
+      JSON.stringify(this.state.myPalettes)
+    );
+  }
+
   //adding new palettes crated by user to seedColors(array)
   addNewPalette(newPalette) {
-    this.setState({ myPalettes: [...this.state.myPalettes, newPalette] });
+    this.setState(
+      { myPalettes: [...this.state.myPalettes, newPalette] },
+      //once state is updated,then callback func will be called
+      this.storeInLocalStorage
+    );
   }
 
   render() {
