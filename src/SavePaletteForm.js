@@ -9,7 +9,8 @@ import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-import MenuIcon from "@material-ui/icons/Menu";
+// import MenuIcon from "@material-ui/icons/Menu";
+import PaletteIcon from "@material-ui/icons/Palette";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 
 import { Link } from "react-router-dom";
@@ -56,7 +57,7 @@ class SavePaletteForm extends Component {
               onClick={handleDrawerOpen}
               className={classNames(classes.menuButton, open && classes.hide)}
             >
-              <MenuIcon />
+              <PaletteIcon fontSize="large" />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
               Create New Palette

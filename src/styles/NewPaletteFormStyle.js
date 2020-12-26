@@ -9,9 +9,6 @@ const styles = (theme) => ({
     // height: "100vh",
   },
 
-  hide: {
-    display: "none",
-  },
   drawer: {
     width: drawerWidth,
     height: "100vh",
@@ -24,6 +21,7 @@ const styles = (theme) => ({
   },
   drawerHeader: {
     display: "flex",
+    // width: "100%",
     alignItems: "center",
     padding: "0 8px",
     ...theme.mixins.toolbar,
@@ -33,7 +31,8 @@ const styles = (theme) => ({
     height: `calc(100vh-${navHeight}px)`,
     // height: "100%",
     flexGrow: 1,
-    padding: theme.spacing.unit * 3,
+    // padding: theme.spacing.unit * 3,
+    padding: 0,
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
