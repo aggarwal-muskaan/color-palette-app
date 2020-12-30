@@ -1,11 +1,17 @@
 import breakpoint from "./breakpoints";
+import bg from "./background.svg";
 const styles = {
   root: {
-    backgroundColor: "blue",
+    // backgroundColor: "blue",
     height: "100vh",
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
+    backgroundColor: "#8d2640",
+    backgroundImage: `url(${bg})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    overflow: "scroll",
   },
   container: {
     width: "50%",
@@ -29,6 +35,7 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     "& h1,& a": { color: "white" },
+    // "& h1": { fontSize: "2rem" },
   },
   palettes: {
     boxSizing: "border-box",
@@ -42,7 +49,7 @@ const styles = {
     },
     [breakpoint.down("xs")]: {
       gridTemplateColumns: "repeat(1, 100%)",
-      gridGap: "1rem",
+      gridGap: "1.5rem",
     },
     // overflowX: "hidden",
   },
