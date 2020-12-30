@@ -1,4 +1,5 @@
 import chroma from "chroma-js";
+import breakpoint from "./breakpoints";
 
 const styles = {
   ColorBoxes: {
@@ -12,6 +13,19 @@ const styles = {
     "&:hover button": {
       opacity: 1,
       transition: "1s ease",
+    },
+    [breakpoint.down("lg")]: {
+      width: (props) => (props.seemoreLink ? "25%" : "calc(100%/6)"),
+      height: (props) => (props.seemoreLink ? "20%" : "calc(100%/3)"),
+    },
+    [breakpoint.down("md")]: {
+      width: (props) => (props.seemoreLink ? "50%" : "calc(100%/5)"),
+      height: (props) => (props.seemoreLink ? "10%" : "calc(100%/4)"),
+    },
+    [breakpoint.down("xs")]: {
+      width: (props) => (props.seemoreLink ? "100%" : "100%"),
+      height: (props) => (props.seemoreLink ? "5%" : "calc(100%/18)"),
+      fontSize: "8rem",
     },
   },
   copyText: {
