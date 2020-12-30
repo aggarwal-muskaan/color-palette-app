@@ -1,5 +1,5 @@
 import { DRAWER_WIDTH } from "../constants";
-
+import breakpoint from "./breakpoints";
 const drawerWidth = DRAWER_WIDTH;
 
 const style = (theme) => ({
@@ -31,6 +31,26 @@ const style = (theme) => ({
   menuButton: {
     marginLeft: 12,
     marginRight: 20,
+  },
+  btns: {
+    marginRight: 20,
+    display: "flex",
+    width: "300px",
+    justifyContent: "space-between",
+    alignItems: "center",
+    "& a": {
+      textDecoration: "none",
+    },
+    //TODO:
+    //  [breakpoint.down("xs")]: {
+    //   marginRight: "8px",
+    //   width: "150px",
+    //   "& button,a": {
+    //     width: "70px",
+    //     margin: "0 0.2rem",
+    //     padding: "0.3rem",
+    //   },
+    // },
   },
 });
 

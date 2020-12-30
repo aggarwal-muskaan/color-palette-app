@@ -64,23 +64,25 @@ class SavePaletteForm extends Component {
             </Typography>
           </Toolbar>
 
-          <Link to="/">
+          <div className={classes.btns}>
+            <Link to="/">
+              <Button
+                variant="contained"
+                color="default"
+                startIcon={<ArrowBackIcon />}
+              >
+                Go Back
+              </Button>
+            </Link>
             <Button
               variant="contained"
-              color="default"
-              startIcon={<ArrowBackIcon />}
+              color="secondary"
+              startIcon={<FavoriteIcon />}
+              onClick={this.openModal}
             >
-              Go Back
+              Save Palette
             </Button>
-          </Link>
-          <Button
-            variant="contained"
-            color="secondary"
-            startIcon={<FavoriteIcon />}
-            onClick={this.openModal}
-          >
-            Save Palette
-          </Button>
+          </div>
         </AppBar>
         {showDialog && (
           <DialogSavePalette

@@ -25,7 +25,6 @@ const styles = {
     [breakpoint.down("xs")]: {
       width: (props) => (props.seemoreLink ? "100%" : "100%"),
       height: (props) => (props.seemoreLink ? "5%" : "calc(100%/18)"),
-      fontSize: "8rem",
     },
   },
   copyText: {
@@ -125,6 +124,9 @@ const styles = {
       marginBottom: "0",
       padding: "1rem",
       textTransform: "uppercase",
+      [breakpoint.down("xs")]: {
+        fontSize: "3rem",
+      },
     },
     "& p": {
       fontSize: "2rem",
