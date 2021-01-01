@@ -60,11 +60,22 @@ class NewPaletteForm extends Component {
   generateRandomColor = () => {
     const colors = this.props.prevPalettes.map((p) => p.colors);
     const singleArr = colors.flat();
-    //concatenates sub-arrays in one
+    //* concatenates sub-arrays in one
+    let rand;
+    let randomColor;
+    let isDuplicateColor = true;
 
-    const randIn = Math.floor(singleArr.length * Math.random());
-    const randColor = singleArr[randIn];
-    this.setState({ arr: [...this.state.arr, randColor] });
+    // checking RANDOM duplicate colors
+    while (isDuplicateColor) {
+      rand = Math.floor(Math.random() * singleArr.length);
+      randomColor = singleArr[rand];
+      isDuplicateColor = this.state.arr.some(
+        // eslint-disable-next-line no-loop-func
+        (c) => c.name === randomColor.name
+      );
+    }
+
+    this.setState({ arr: [...this.state.arr, randomColor] });
   };
 
   // ! update array of colors
