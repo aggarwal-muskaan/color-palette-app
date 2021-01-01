@@ -14,6 +14,7 @@ import { arrayMove } from "react-sortable-hoc";
 import DraggableColorList from "./DraggableColorList";
 import SavePaletteForm from "./SavePaletteForm";
 import ColorPickerForm from "./ColorPickerForm";
+import seedColors from "./seedColors";
 import styles from "./styles/NewPaletteFormStyle";
 
 class NewPaletteForm extends Component {
@@ -24,9 +25,9 @@ class NewPaletteForm extends Component {
 
   constructor(props) {
     super(props);
+    const randPalette = Math.floor(Math.random() * seedColors.length);
     this.state = {
-      // userPaletteName: "",
-      arr: this.props.prevPalettes[3].colors.slice(2),
+      arr: seedColors[randPalette].colors.slice(2),
       //* * structure => arr: [{ color: "", name: "" }]
       open: true,
     };

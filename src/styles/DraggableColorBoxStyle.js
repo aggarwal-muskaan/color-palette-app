@@ -9,11 +9,13 @@
 //     marginBottom: "-3.5px",
 //   },
 // };
+import chroma from "chroma-js";
 import breakpoint from "./breakpoints";
 
 const style = {
   box: {
     width: "20%",
+    // TODO: fix height ,parent element
     height: "25%",
     margin: "0 auto",
     display: "inline-block",
@@ -44,7 +46,10 @@ const style = {
     left: "0px",
     bottom: "0px",
     padding: "10px",
-    color: "rgba(0, 0, 0, 0.5)",
+    color: (props) =>
+      chroma(props.clr.color).luminance() <= 0.08
+        ? "rgba(255,255,255,0.7)"
+        : "rgba(0, 0, 0, 0.9)",
     letterSpacing: "1px",
     textTransform: "uppercase",
     fontSize: "12px",
