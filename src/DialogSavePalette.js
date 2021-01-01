@@ -53,6 +53,7 @@ class DialogSavePalette extends Component {
       emoji: userEmo.native,
     };
     this.props.handleSavePalette(newPalette);
+    this.setState({ openEmojiDialog: false });
   };
 
   render() {
