@@ -1,20 +1,27 @@
 import { withStyles } from "@material-ui/styles";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import styles from "./styles/MiniPaletteStyle";
 
-class MiniPalette extends Component {
+class MiniPalette extends PureComponent {
   constructor(props) {
     super(props);
     this.deleteThisPalette = this.deleteThisPalette.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   deleteThisPalette(event) {
     event.stopPropagation();
     this.props.handleDelete(this.props.id);
   }
+
+  handleClick() {
+    this.props.goToPalette(this.props.id);
+  }
+
   render() {
-    const { classes, paletteName, emoji, colors, handleClick } = this.props;
+    const { classes, paletteName, emoji, colors } = this.props;
+    // ? for checking re-rendering: console.log("heeHaw", paletteName);
     const miniColorBoxes = colors.map((c) => (
       <div
         key={c.name}
@@ -23,7 +30,7 @@ class MiniPalette extends Component {
       />
     ));
     return (
-      <div className={classes.root} onClick={handleClick}>
+      <div className={classes.root} onClick={this.handleClick}>
         {/* <div className={classes.delete}> */}
         <DeleteForeverIcon
           // fontSize="large"

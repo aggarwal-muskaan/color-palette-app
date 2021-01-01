@@ -6,9 +6,9 @@ import MiniPalette from "./MiniPalette";
 import styles from "./styles/PaletteListStyle";
 
 class PaletteList extends Component {
-  showPalette(id) {
+  showPalette = (id) => {
     this.props.history.push(`/palette/${id}`);
-  }
+  };
 
   render() {
     const { palettes, classes, deletePalette } = this.props;
@@ -23,8 +23,10 @@ class PaletteList extends Component {
             {palettes.map((p) => (
               <CSSTransition key={p.id} classNames="fade" timeout={500}>
                 <MiniPalette
+                  //? easy to extract
                   {...p}
-                  handleClick={() => this.showPalette(p.id)}
+                  //* was causing re-rendering even after using PureComponent as it is inline binding /*! handleClick={() => this.showPalette(p.id)}
+                  goToPalette={this.showPalette}
                   key={p.id}
                   id={p.id}
                   handleDelete={deletePalette}
