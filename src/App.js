@@ -1,19 +1,20 @@
 // import "./App.css";
 // import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { Component } from "react";
+
 import Page from "./Page.js";
-import seedColors from "./seedColors";
 import PaletteList from "./PaletteList";
 import NewPaletteForm from "./NewPaletteForm";
 import Palette from "./Palette";
 import SingleColorShades from "./SingleColorShades";
 
+import seedColors from "./seedColors";
 import { generatePalette } from "./colorHelpers";
-import { Route, Switch } from "react-router-dom";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import { Component } from "react";
 
 class App extends Component {
-  // add constructor to init state with seedColors
+  //* add constructor to init state with seedColors
   constructor(props) {
     super(props);
     const localPalettes = JSON.parse(window.localStorage.getItem("myPalettes"));
@@ -37,7 +38,7 @@ class App extends Component {
     );
   }
 
-  //adding new palettes created by user to seedColors(array)
+  //* adding new palettes created by user to seedColors(array)
   addNewPalette(newPalette) {
     this.setState(
       { myPalettes: [...this.state.myPalettes, newPalette] },
@@ -46,7 +47,7 @@ class App extends Component {
     );
   }
 
-  // deleting palettes and saving the result to localStorage
+  //* deleting palettes and saving the result to localStorage
   deletePalette(id) {
     this.setState(
       (st) => ({
@@ -68,7 +69,7 @@ class App extends Component {
                 <Route
                   exact
                   path="/palette/createnew"
-                  // /* order matters so that it don't redirect to /palette/'id' */
+                  //!  order matters so that it don't redirect to /palette/'id'
                   render={(routeProps) => (
                     <Page>
                       <NewPaletteForm

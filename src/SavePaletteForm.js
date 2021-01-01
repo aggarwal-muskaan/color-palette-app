@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import classNames from "classnames";
-import style from "./styles/SavePaletteFormStyle";
 import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
@@ -9,13 +8,12 @@ import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-// import MenuIcon from "@material-ui/icons/Menu";
 import PaletteIcon from "@material-ui/icons/Palette";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-
 import { Link } from "react-router-dom";
+
 import DialogSavePalette from "./DialogSavePalette";
-// import { ChromePicker } from "react-color";
+import style from "./styles/SavePaletteFormStyle";
 
 class SavePaletteForm extends Component {
   constructor(props) {

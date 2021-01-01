@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
-import { withStyles } from "@material-ui/core/styles";
-import styles from "./styles/ColorPickerFormStyle";
-
-import Button from "@material-ui/core/Button";
 import { SketchPicker } from "react-color";
+import Button from "@material-ui/core/Button";
+import { withStyles } from "@material-ui/core/styles";
+
+import styles from "./styles/ColorPickerFormStyle";
 
 class ColorPickerForm extends Component {
   constructor(props) {

@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
@@ -14,10 +12,9 @@ import { arrayMove } from "react-sortable-hoc";
 //?  import { ChromePicker } from "react-color";
 
 import DraggableColorList from "./DraggableColorList";
-
-import styles from "./styles/NewPaletteFormStyle";
 import SavePaletteForm from "./SavePaletteForm";
 import ColorPickerForm from "./ColorPickerForm";
+import styles from "./styles/NewPaletteFormStyle";
 
 class NewPaletteForm extends Component {
   //setting total color boxes to be 20
