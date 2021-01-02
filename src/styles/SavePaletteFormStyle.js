@@ -1,5 +1,5 @@
-import { DRAWER_WIDTH } from "../constants";
-import breakpoint from "./breakpoints";
+import { DRAWER_WIDTH, NAV_HEIGHT } from "../constants";
+// import breakpoint from "./breakpoints";
 const drawerWidth = DRAWER_WIDTH;
 
 const style = (theme) => ({
@@ -16,7 +16,7 @@ const style = (theme) => ({
     }),
     flexDirection: "row",
     justifyContent: "space-between",
-    height: "64px",
+    height: NAV_HEIGHT,
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,

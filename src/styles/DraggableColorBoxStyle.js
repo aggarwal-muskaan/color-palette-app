@@ -21,8 +21,8 @@ const style = {
     display: "inline-block",
     position: "relative",
     cursor: "pointer",
-    marginBottom: "-5.5px",
-    // marginBottom: "-6px",
+    // marginBottom: "-5.5px",
+    marginBottom: "-6px",
     "&:hover svg": {
       color: (props) =>
         chroma(props.clr.color).luminance() <= 0.08
@@ -58,6 +58,9 @@ const style = {
     fontSize: "12px",
     display: "flex",
     justifyContent: "space-between",
+    [breakpoint.down("sm")]: {
+      alignItems: "center",
+    },
   },
   deleteIcon: {
     transition: "all 0.3s ease-in-out",

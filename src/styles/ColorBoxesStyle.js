@@ -22,6 +22,9 @@ const styles = {
       width: (props) => (props.seemoreLink ? "50%" : "calc(100%/5)"),
       height: (props) => (props.seemoreLink ? "10%" : "calc(100%/4)"),
     },
+    [breakpoint.down("sm")]: {
+      colorName: { textAlign: "center" },
+    },
     [breakpoint.down("xs")]: {
       width: (props) => (props.seemoreLink ? "100%" : "100%"),
       height: (props) => (props.seemoreLink ? "5%" : "calc(100%/18)"),
