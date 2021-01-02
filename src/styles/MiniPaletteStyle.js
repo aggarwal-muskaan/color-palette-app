@@ -50,8 +50,8 @@ const styles = {
     display: "inline-block",
     margin: "0 auto",
     position: "relative",
-    marginBottom: "-4px",
-    // marginBottom: "-6px",
+    // marginBottom: "-4px",
+    marginBottom: "-6px",
   },
 };
 export default styles;

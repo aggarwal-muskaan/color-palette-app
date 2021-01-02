@@ -57,7 +57,12 @@ class SavePaletteForm extends Component {
             >
               <PaletteIcon fontSize="large" />
             </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
+            <Typography
+              variant="h6"
+              color="inherit"
+              noWrap
+              className={classes.navbarText}
+            >
               Create New Palette
             </Typography>
           </Toolbar>

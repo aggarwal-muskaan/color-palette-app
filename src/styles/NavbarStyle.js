@@ -23,7 +23,7 @@ const styles = {
       textDecoration: "none",
       color: "black",
     },
-    [breakpoint.down("sm")]: {
+    [breakpoint.down("xs")]: {
       // width: "100%",
       display: "none",
     },

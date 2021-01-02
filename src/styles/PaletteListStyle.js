@@ -16,11 +16,11 @@ const styles = {
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
-    backgroundColor: "#8d2640",
+    // backgroundColor: "#8d2640",
     backgroundImage: `url(${bg})`,
-    backgroundRepeat: "no-repeat",
+    // backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    overflow: "scroll",
+    overflowY: "scroll",
   },
   container: {
     width: "50%",
@@ -30,7 +30,7 @@ const styles = {
     flexWrap: "wrap",
     marginBottom: "2rem",
     // height: "100%",
-    [breakpoint.down("xl")]: {
+    [breakpoint.down("lg")]: {
       width: "80%",
     },
     [breakpoint.down("xs")]: {
@@ -49,7 +49,7 @@ const styles = {
   palettes: {
     boxSizing: "border-box",
     width: "100%",
-    height: "80%",
+    // height: "80%",
     display: "grid",
     gridTemplateColumns: "repeat(3, 30%)",
     gridGap: "2.5rem",

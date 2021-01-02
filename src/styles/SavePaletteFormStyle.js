@@ -1,5 +1,5 @@
 import { DRAWER_WIDTH, NAV_HEIGHT } from "../constants";
-// import breakpoint from "./breakpoints";
+import breakpoint from "./breakpoints";
 const drawerWidth = DRAWER_WIDTH;
 
 const style = (theme) => ({
@@ -8,6 +8,11 @@ const style = (theme) => ({
   },
   hide: {
     display: "none",
+  },
+  navbarText: {
+    [breakpoint.down("md")]: {
+      display: "none",
+    },
   },
   appBar: {
     transition: theme.transitions.create(["margin", "width"], {
@@ -41,16 +46,16 @@ const style = (theme) => ({
     "& a": {
       textDecoration: "none",
     },
-    //TODO:
-    //  [breakpoint.down("xs")]: {
-    //   marginRight: "8px",
-    //   width: "150px",
-    //   "& button,a": {
-    //     width: "70px",
-    //     margin: "0 0.2rem",
-    //     padding: "0.3rem",
-    //   },
-    // },
+    // TODO:
+    [breakpoint.down("sm")]: {
+      marginRight: "8px",
+      // width: "150px",
+      "& button": {
+        height: "50px",
+        margin: "0 0.2rem",
+        // padding: "0.3rem",
+      },
+    },
   },
 });
 
