@@ -24,7 +24,10 @@ const style = {
     marginBottom: "-5.5px",
     // marginBottom: "-6px",
     "&:hover svg": {
-      color: "white",
+      color: (props) =>
+        chroma(props.clr.color).luminance() <= 0.08
+          ? "white"
+          : "rgba(0, 0, 0, 0.9)",
       transform: "scale(1.5)",
     },
     [breakpoint.down("lg")]: {
