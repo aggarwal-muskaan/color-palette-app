@@ -11,7 +11,7 @@ import Button from "@material-ui/core/Button";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 
 import { arrayMove } from "react-sortable-hoc";
-// import { ChromePicker } from "react-color";
+//?  import { ChromePicker } from "react-color";
 
 import DraggableColorList from "./DraggableColorList";
 
@@ -30,12 +30,12 @@ class NewPaletteForm extends Component {
     this.state = {
       // userPaletteName: "",
       arr: this.props.prevPalettes[3].colors.slice(2),
-      // structure => arr: [{ color: "", name: "" }]
-      open: false,
+      //* * structure => arr: [{ color: "", name: "" }]
+      open: true,
     };
   }
 
-  //here binding is not done in Constructor
+  // ! here binding is not done in Constructor
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };
@@ -44,7 +44,7 @@ class NewPaletteForm extends Component {
     this.setState({ open: false });
   };
 
-  //add new palette & pass to parent component
+  // !add new palette & pass to parent component
   handleSavePalette = (name) => {
     let paletteName = name.trim();
     let paletteId = paletteName.toLowerCase().replace(/ /g, "-");
@@ -59,12 +59,12 @@ class NewPaletteForm extends Component {
     this.props.history.push("/");
   };
 
-  //clearing palette
+  // !clearing palette
   clearPalette = () => {
     this.setState({ arr: [] });
   };
 
-  //random colors
+  // !random colors
   generateRandomColor = () => {
     const colors = this.props.prevPalettes.map((p) => p.colors);
     const singleArr = colors.flat();
@@ -75,20 +75,20 @@ class NewPaletteForm extends Component {
     this.setState({ arr: [...this.state.arr, randColor] });
   };
 
-  // update array of colors
+  // ! update array of colors
   addColor = (newColor) => {
     this.setState({
       arr: [...this.state.arr, newColor],
     });
   };
 
-  //delete color
+  // ! delete color
   deleteColor = (clrName) => {
     const colors = this.state.arr.filter((ob) => ob.name !== clrName);
     this.setState({ arr: colors });
   };
 
-  //function for drag/drop and saving their indices
+  // !function for drag/drop and saving their indices
   onSortEnd = ({ oldIndex, newIndex }) => {
     this.setState(({ arr }) => ({
       arr: arrayMove(arr, oldIndex, newIndex),

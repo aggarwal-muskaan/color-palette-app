@@ -6,42 +6,40 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import MenuIcon from "@material-ui/icons/Menu";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import FavoriteIcon from "@material-ui/icons/Favorite";
 
 import { Link } from "react-router-dom";
+import DialogSavePalette from "./DialogSavePalette";
 // import { ChromePicker } from "react-color";
-
-import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
 
 class SavePaletteForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userPaletteName: "",
+      showDialog: false,
     };
   }
 
-  componentDidMount() {
-    //validating palette names
-    ValidatorForm.addValidationRule("isPaletteNameUnique", (value) =>
-      this.props.prevPalettes.every(
-        ({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
-      )
-    );
-  }
-
-  handleNameChange = (event) => {
-    // this.setState({ currentColorName: event.target.value });
-    this.setState({ [event.target.name]: event.target.value });
+  openModal = () => {
+    this.setState({ showDialog: true });
   };
 
+  closeModal = () => {
+    this.setState({ showDialog: false });
+  };
   render() {
-    const { classes, open, handleSavePalette, handleDrawerOpen } = this.props;
-    const { userPaletteName } = this.state;
+    const {
+      classes,
+      open,
+      handleSavePalette,
+      handleDrawerOpen,
+      prevPalettes,
+    } = this.props;
+    const { showDialog } = this.state;
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -74,28 +72,23 @@ class SavePaletteForm extends Component {
               Go Back
             </Button>
           </Link>
-          <ValidatorForm onSubmit={() => handleSavePalette(userPaletteName)}>
-            <TextValidator
-              label="Palette Name"
-              name="userPaletteName"
-              value={userPaletteName}
-              onChange={this.handleNameChange}
-              validators={["required", "isPaletteNameUnique"]}
-              errorMessages={[
-                "Palette name is required.",
-                "Name already taken.",
-              ]}
-            />
-            <Button
-              variant="contained"
-              color="secondary"
-              startIcon={<FavoriteIcon />}
-              type="submit"
-            >
-              Save Palette
-            </Button>
-          </ValidatorForm>
+          <Button
+            variant="contained"
+            color="secondary"
+            startIcon={<FavoriteIcon />}
+            onClick={this.openModal}
+          >
+            Save Palette
+          </Button>
         </AppBar>
+        {showDialog && (
+          <DialogSavePalette
+            handleSavePalette={handleSavePalette}
+            prevPalettes={prevPalettes}
+            // showDialog
+            closeModal={this.closeModal}
+          />
+        )}
       </div>
     );
   }

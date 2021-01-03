@@ -7,7 +7,8 @@ const styles = {
     margin: "0 auto",
     display: "inline-block",
     position: "relative",
-    marginBottom: "-4px",
+    // marginBottom: "-4px",
+    marginBottom: "-6px",
     "&:hover button": {
       opacity: 1,
       transition: "1s ease",
