@@ -1,6 +1,6 @@
 // import "./App.css";
 // import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { Component } from "react";
 
@@ -12,6 +12,7 @@ import SingleColorShades from "./SingleColorShades";
 
 import seedColors from "./seedColors";
 import { generatePalette } from "./colorHelpers";
+import FourZeroFour from "./FourZeroFour.js";
 
 class App extends Component {
   //* add constructor to init state with seedColors
@@ -122,6 +123,7 @@ class App extends Component {
                     </Page>
                   )}
                 />
+                <Route component={FourZeroFour} />
               </Switch>
             </CSSTransition>
           </TransitionGroup>
