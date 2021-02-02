@@ -1,6 +1,6 @@
 // import "./App.css";
 // import React, { Component } from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { Component } from "react";
 

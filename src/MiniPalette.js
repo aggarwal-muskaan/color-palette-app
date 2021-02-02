@@ -22,6 +22,7 @@ class MiniPalette extends PureComponent {
 
   render() {
     const { classes, paletteName, emoji, colors } = this.props;
+    // console.log(paletteName, emoji, typeof emoji);
     // ? for checking re-rendering: console.log("heeHaw", paletteName);
     const miniColorBoxes = colors.map((c) => (
       <div

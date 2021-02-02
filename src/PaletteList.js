@@ -35,9 +35,9 @@ class PaletteList extends Component {
     this.setState({ deleteDialog: false, deletePaletteId: "" });
   };
 
-  showPalette(id) {
+  showPalette = (id) => {
     this.props.history.push(`/palette/${id}`);
-  }
+  };
 
   handleDelete = () => {
     this.props.deletePalette(this.state.deletePaletteId);
