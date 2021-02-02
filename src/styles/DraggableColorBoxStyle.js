@@ -21,13 +21,8 @@ const style = {
     display: "inline-block",
     position: "relative",
     cursor: "pointer",
-<<<<<<< HEAD
-    marginBottom: "-5.5px",
-    // marginBottom: "-6px",
-=======
     // marginBottom: "-5.5px",
     marginBottom: "-6px",
->>>>>>> branch-1
     "&:hover svg": {
       color: (props) =>
         chroma(props.clr.color).luminance() <= 0.08

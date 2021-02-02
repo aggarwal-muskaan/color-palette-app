@@ -50,13 +50,8 @@ const styles = {
     display: "inline-block",
     margin: "0 auto",
     position: "relative",
-<<<<<<< HEAD
-    marginBottom: "-4px",
-    // marginBottom: "-6px",
-=======
     // marginBottom: "-4px",
     marginBottom: "-6px",
->>>>>>> branch-1
   },
 };
 export default styles;

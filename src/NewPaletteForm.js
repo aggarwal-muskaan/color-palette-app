@@ -27,12 +27,7 @@ class NewPaletteForm extends Component {
     super(props);
     const randPalette = Math.floor(Math.random() * seedColors.length);
     this.state = {
-<<<<<<< HEAD
-      // userPaletteName: "",
-      arr: this.props.prevPalettes[3].colors.slice(2),
-=======
       arr: seedColors[randPalette].colors.slice(2),
->>>>>>> branch-1
       //* * structure => arr: [{ color: "", name: "" }]
       open: true,
     };
@@ -48,23 +43,10 @@ class NewPaletteForm extends Component {
   };
 
   // !add new palette & pass to parent component
-<<<<<<< HEAD
-  handleSavePalette = (name) => {
-    let paletteName = name.trim();
-    let paletteId = paletteName.toLowerCase().replace(/ /g, "-");
-
-    const newPalette = {
-      paletteName: paletteName,
-      colors: this.state.arr,
-      id: paletteId,
-      emoji: "🎗",
-    };
-=======
   handleSavePalette = (newPalette) => {
     let paletteId = newPalette.paletteName.toLowerCase().replace(/ /g, "-");
     newPalette.id = paletteId;
     newPalette.colors = this.state.arr;
->>>>>>> branch-1
     this.props.savePalette(newPalette);
     this.props.history.push("/");
   };

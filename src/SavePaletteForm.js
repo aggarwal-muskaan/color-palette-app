@@ -10,19 +10,11 @@ import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import PaletteIcon from "@material-ui/icons/Palette";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-<<<<<<< HEAD
-
-import { Link } from "react-router-dom";
-import DialogSavePalette from "./DialogSavePalette";
-// import { ChromePicker } from "react-color";
-
-=======
 import { Link } from "react-router-dom";
 
 import DialogSavePalette from "./DialogSavePalette";
 import style from "./styles/SavePaletteFormStyle";
 
->>>>>>> branch-1
 class SavePaletteForm extends Component {
   constructor(props) {
     super(props);
@@ -75,25 +67,6 @@ class SavePaletteForm extends Component {
             </Typography>
           </Toolbar>
 
-<<<<<<< HEAD
-          <Link to="/">
-            <Button
-              variant="contained"
-              color="default"
-              startIcon={<ArrowBackIcon />}
-            >
-              Go Back
-            </Button>
-          </Link>
-          <Button
-            variant="contained"
-            color="secondary"
-            startIcon={<FavoriteIcon />}
-            onClick={this.openModal}
-          >
-            Save Palette
-          </Button>
-=======
           <div className={classes.btns}>
             <Link to="/">
               <Button
@@ -113,7 +86,6 @@ class SavePaletteForm extends Component {
               Save Palette
             </Button>
           </div>
->>>>>>> branch-1
         </AppBar>
         {showDialog && (
           <DialogSavePalette
