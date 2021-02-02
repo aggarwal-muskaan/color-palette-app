@@ -1,3 +1,5 @@
+import breakpoint from "./breakpoints";
+
 const styles = {
   Palette: {
     height: "100vh",
@@ -14,7 +16,7 @@ const styles = {
     display: "inline-block",
     position: "relative",
     cursor: "pointer",
-    marginBottom: "-4px",
+    marginBottom: "-6px",
     opacity: 1,
     backgroundColor: "black",
     "& a": {
@@ -35,6 +37,18 @@ const styles = {
       textTransform: "uppercase",
       border: "none",
       textDecoration: "none",
+    },
+    // [breakpoint.down("lg")]: {
+    //   width: "25%",
+    //   height: "33.3333%",
+    // },
+    [breakpoint.down("md")]: {
+      width: "calc(100%/5)",
+      height: "calc(100%/4)",
+    },
+    [breakpoint.down("xs")]: {
+      width: "100%",
+      height: "calc(100%/18)",
     },
   },
 };

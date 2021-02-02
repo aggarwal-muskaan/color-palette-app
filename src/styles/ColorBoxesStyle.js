@@ -1,4 +1,5 @@
 import chroma from "chroma-js";
+import breakpoint from "./breakpoints";
 
 const styles = {
   ColorBoxes: {
@@ -12,6 +13,21 @@ const styles = {
     "&:hover button": {
       opacity: 1,
       transition: "1s ease",
+    },
+    [breakpoint.down("lg")]: {
+      width: (props) => (props.seemoreLink ? "25%" : "calc(100%/6)"),
+      height: (props) => (props.seemoreLink ? "20%" : "calc(100%/3)"),
+    },
+    [breakpoint.down("md")]: {
+      width: (props) => (props.seemoreLink ? "50%" : "calc(100%/5)"),
+      height: (props) => (props.seemoreLink ? "10%" : "calc(100%/4)"),
+    },
+    [breakpoint.down("sm")]: {
+      colorName: { textAlign: "center" },
+    },
+    [breakpoint.down("xs")]: {
+      width: (props) => (props.seemoreLink ? "100%" : "100%"),
+      height: (props) => (props.seemoreLink ? "5%" : "calc(100%/18)"),
     },
   },
   copyText: {
@@ -32,9 +48,10 @@ const styles = {
     bottom: "0",
     width: "65px",
     cursor: "pointer",
-    height: "20px",
+    height: "24px",
     textAlign: "center",
-    lineHeight: "20px",
+    // lineHeight: "20px",
+    padding: "5px 0",
     // fontSize:"12px",
     textTransform: "uppercase",
   },
@@ -111,6 +128,9 @@ const styles = {
       marginBottom: "0",
       padding: "1rem",
       textTransform: "uppercase",
+      [breakpoint.down("xs")]: {
+        fontSize: "3rem",
+      },
     },
     "& p": {
       fontSize: "2rem",

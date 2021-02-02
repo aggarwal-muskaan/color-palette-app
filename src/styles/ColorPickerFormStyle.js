@@ -1,6 +1,6 @@
 const styles = {
   picker: {
-    width: "100% !important",
+    width: "95% !important",
     // height: "10",
     marginTop: "2rem",
     // "& .saturation-white,.saturation-black": {

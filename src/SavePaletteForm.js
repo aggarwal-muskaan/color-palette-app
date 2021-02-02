@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import classNames from "classnames";
-import style from "./styles/SavePaletteFormStyle";
 import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
@@ -9,13 +8,21 @@ import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
-import MenuIcon from "@material-ui/icons/Menu";
+import PaletteIcon from "@material-ui/icons/Palette";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+<<<<<<< HEAD
 
 import { Link } from "react-router-dom";
 import DialogSavePalette from "./DialogSavePalette";
 // import { ChromePicker } from "react-color";
 
+=======
+import { Link } from "react-router-dom";
+
+import DialogSavePalette from "./DialogSavePalette";
+import style from "./styles/SavePaletteFormStyle";
+
+>>>>>>> branch-1
 class SavePaletteForm extends Component {
   constructor(props) {
     super(props);
@@ -56,13 +63,19 @@ class SavePaletteForm extends Component {
               onClick={handleDrawerOpen}
               className={classNames(classes.menuButton, open && classes.hide)}
             >
-              <MenuIcon />
+              <PaletteIcon fontSize="large" />
             </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
+            <Typography
+              variant="h6"
+              color="inherit"
+              noWrap
+              className={classes.navbarText}
+            >
               Create New Palette
             </Typography>
           </Toolbar>
 
+<<<<<<< HEAD
           <Link to="/">
             <Button
               variant="contained"
@@ -80,6 +93,27 @@ class SavePaletteForm extends Component {
           >
             Save Palette
           </Button>
+=======
+          <div className={classes.btns}>
+            <Link to="/">
+              <Button
+                variant="contained"
+                color="default"
+                startIcon={<ArrowBackIcon />}
+              >
+                Go Back
+              </Button>
+            </Link>
+            <Button
+              variant="contained"
+              color="secondary"
+              startIcon={<FavoriteIcon />}
+              onClick={this.openModal}
+            >
+              Save Palette
+            </Button>
+          </div>
+>>>>>>> branch-1
         </AppBar>
         {showDialog && (
           <DialogSavePalette

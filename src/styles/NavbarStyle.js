@@ -1,9 +1,14 @@
+import breakpoint from "./breakpoints";
+
 const styles = {
   Navbar: {
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-start",
     height: "6vh",
+    // [breakpoint.down("sm")]: {
+    //   justifyContent: "space-around",
+    // },
   },
   logo: {
     marginRight: "15px",
@@ -17,6 +22,10 @@ const styles = {
     "& a": {
       textDecoration: "none",
       color: "black",
+    },
+    [breakpoint.down("xs")]: {
+      // width: "100%",
+      display: "none",
     },
   },
   slider: {
@@ -39,6 +48,9 @@ const styles = {
       // marginLeft: "7px",
       // marginTop: "-3px",
       margin: "-3px 0 0 7px",
+    },
+    [breakpoint.down("sm")]: {
+      width: "180px",
     },
   },
   selectContainer: {

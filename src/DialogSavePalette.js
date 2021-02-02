@@ -8,6 +8,12 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
+<<<<<<< HEAD
+=======
+import { Picker } from "emoji-mart";
+import "emoji-mart/css/emoji-mart.css";
+
+>>>>>>> branch-1
 class DialogSavePalette extends Component {
   constructor(props) {
     super(props);
@@ -15,9 +21,16 @@ class DialogSavePalette extends Component {
       userPaletteName: "",
       //   open: this.props.showDialog,
       open: true,
+<<<<<<< HEAD
     };
   }
   // ? const [open, setOpen] = React.useState(false);     //REACT HOOKS
+=======
+      openEmojiDialog: false,
+    };
+  }
+  // ?const [open, setOpen] = React.useState(false);     //REACT HOOKS
+>>>>>>> branch-1
 
   componentDidMount() {
     //validating palette names
@@ -32,6 +45,12 @@ class DialogSavePalette extends Component {
     this.setState({ open: true });
   };
 
+<<<<<<< HEAD
+=======
+  showEmoPicker = () => {
+    this.setState({ openEmojiDialog: true, open: false });
+  };
+>>>>>>> branch-1
   // handleClose = () => {
   //   this.setState({ open: false });
   // };
@@ -40,11 +59,35 @@ class DialogSavePalette extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+<<<<<<< HEAD
   render() {
     const { userPaletteName, open } = this.state;
     const { handleSavePalette, closeModal } = this.props;
     return (
       <div>
+=======
+  savePalette = (userEmo) => {
+    const newPalette = {
+      paletteName: this.state.userPaletteName.trim(),
+      emoji: userEmo.native,
+    };
+    this.props.handleSavePalette(newPalette);
+    this.setState({ openEmojiDialog: false });
+  };
+
+  render() {
+    const { userPaletteName, open, openEmojiDialog } = this.state;
+    const { closeModal } = this.props;
+    return (
+      <div>
+        {/* emoji dialog */}
+        <Dialog onClose={closeModal} open={openEmojiDialog}>
+          <DialogTitle id="form-dialog-title">Pick A Palette Emoji</DialogTitle>
+          <Picker title="Choose an emoji" onSelect={this.savePalette} />
+        </Dialog>
+
+        {/* form dialog */}
+>>>>>>> branch-1
         <Dialog
           open={open}
           onClose={closeModal}
@@ -57,7 +100,11 @@ class DialogSavePalette extends Component {
               unique!
             </DialogContentText>
 
+<<<<<<< HEAD
             <ValidatorForm onSubmit={() => handleSavePalette(userPaletteName)}>
+=======
+            <ValidatorForm onSubmit={this.showEmoPicker}>
+>>>>>>> branch-1
               <TextValidator
                 label="Palette Name"
                 name="userPaletteName"

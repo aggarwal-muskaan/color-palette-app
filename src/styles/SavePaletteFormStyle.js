@@ -1,8 +1,18 @@
-const drawerWidth = 400;
+import { DRAWER_WIDTH, NAV_HEIGHT } from "../constants";
+import breakpoint from "./breakpoints";
+const drawerWidth = DRAWER_WIDTH;
 
 const style = (theme) => ({
   root: {
     display: "flex",
+  },
+  hide: {
+    display: "none",
+  },
+  navbarText: {
+    [breakpoint.down("md")]: {
+      display: "none",
+    },
   },
   appBar: {
     transition: theme.transitions.create(["margin", "width"], {
@@ -11,7 +21,7 @@ const style = (theme) => ({
     }),
     flexDirection: "row",
     justifyContent: "space-between",
-    height: "64px",
+    height: NAV_HEIGHT,
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -26,6 +36,26 @@ const style = (theme) => ({
   menuButton: {
     marginLeft: 12,
     marginRight: 20,
+  },
+  btns: {
+    marginRight: 20,
+    display: "flex",
+    width: "300px",
+    justifyContent: "space-between",
+    alignItems: "center",
+    "& a": {
+      textDecoration: "none",
+    },
+    // TODO:
+    [breakpoint.down("sm")]: {
+      marginRight: "8px",
+      // width: "150px",
+      "& button": {
+        height: "50px",
+        margin: "0 0.2rem",
+        // padding: "0.3rem",
+      },
+    },
   },
 });
 

@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
-import { withStyles } from "@material-ui/core/styles";
-import styles from "./styles/ColorPickerFormStyle";
-
-import Button from "@material-ui/core/Button";
 import { SketchPicker } from "react-color";
+import Button from "@material-ui/core/Button";
+import chroma from "chroma-js";
+import { withStyles } from "@material-ui/core/styles";
+
+import styles from "./styles/ColorPickerFormStyle";
 
 class ColorPickerForm extends Component {
   constructor(props) {
@@ -57,6 +58,10 @@ class ColorPickerForm extends Component {
   render() {
     const { paletteLimit, classes } = this.props;
     const { currentColor, currentColorName } = this.state;
+    let textColor;
+    if (currentColor) {
+      textColor = chroma(currentColor).luminance() <= 0.08 ? "white" : "black";
+    } else textColor = "black";
     return (
       <div>
         <SketchPicker
@@ -68,7 +73,11 @@ class ColorPickerForm extends Component {
             color={currentColor}
             onChangeComplete={this.handleColorChange}
           /> */}
-        <ValidatorForm onSubmit={this.addNewColor} ref="form">
+        <ValidatorForm
+          onSubmit={this.addNewColor}
+          ref="form"
+          instantValidate={false}
+        >
           <TextValidator
             name="currentColorName"
             value={currentColorName}
@@ -86,8 +95,11 @@ class ColorPickerForm extends Component {
           />
           <Button
             variant="contained"
-            style={{ backgroundColor: paletteLimit ? "grey" : currentColor }}
             className={classes.addColor}
+            style={{
+              backgroundColor: paletteLimit ? "grey" : currentColor,
+              color: textColor,
+            }}
             size="large"
             // color="secondary"
             disabled={paletteLimit}

@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
@@ -14,10 +12,10 @@ import { arrayMove } from "react-sortable-hoc";
 //?  import { ChromePicker } from "react-color";
 
 import DraggableColorList from "./DraggableColorList";
-
-import styles from "./styles/NewPaletteFormStyle";
 import SavePaletteForm from "./SavePaletteForm";
 import ColorPickerForm from "./ColorPickerForm";
+import seedColors from "./seedColors";
+import styles from "./styles/NewPaletteFormStyle";
 
 class NewPaletteForm extends Component {
   //setting total color boxes to be 20
@@ -27,9 +25,14 @@ class NewPaletteForm extends Component {
 
   constructor(props) {
     super(props);
+    const randPalette = Math.floor(Math.random() * seedColors.length);
     this.state = {
+<<<<<<< HEAD
       // userPaletteName: "",
       arr: this.props.prevPalettes[3].colors.slice(2),
+=======
+      arr: seedColors[randPalette].colors.slice(2),
+>>>>>>> branch-1
       //* * structure => arr: [{ color: "", name: "" }]
       open: true,
     };
@@ -45,6 +48,7 @@ class NewPaletteForm extends Component {
   };
 
   // !add new palette & pass to parent component
+<<<<<<< HEAD
   handleSavePalette = (name) => {
     let paletteName = name.trim();
     let paletteId = paletteName.toLowerCase().replace(/ /g, "-");
@@ -55,6 +59,12 @@ class NewPaletteForm extends Component {
       id: paletteId,
       emoji: "🎗",
     };
+=======
+  handleSavePalette = (newPalette) => {
+    let paletteId = newPalette.paletteName.toLowerCase().replace(/ /g, "-");
+    newPalette.id = paletteId;
+    newPalette.colors = this.state.arr;
+>>>>>>> branch-1
     this.props.savePalette(newPalette);
     this.props.history.push("/");
   };
@@ -68,11 +78,22 @@ class NewPaletteForm extends Component {
   generateRandomColor = () => {
     const colors = this.props.prevPalettes.map((p) => p.colors);
     const singleArr = colors.flat();
-    //concatenates sub-arrays in one
+    //* concatenates sub-arrays in one
+    let rand;
+    let randomColor;
+    let isDuplicateColor = true;
 
-    const randIn = Math.floor(singleArr.length * Math.random());
-    const randColor = singleArr[randIn];
-    this.setState({ arr: [...this.state.arr, randColor] });
+    // checking RANDOM duplicate colors
+    while (isDuplicateColor) {
+      rand = Math.floor(Math.random() * singleArr.length);
+      randomColor = singleArr[rand];
+      isDuplicateColor = this.state.arr.some(
+        // eslint-disable-next-line no-loop-func
+        (c) => c.name === randomColor.name
+      );
+    }
+
+    this.setState({ arr: [...this.state.arr, randomColor] });
   };
 
   // ! update array of colors
@@ -126,7 +147,7 @@ class NewPaletteForm extends Component {
         >
           <div className={classes.drawerHeader}>
             <IconButton onClick={this.handleDrawerClose}>
-              <ChevronLeftIcon />
+              <ChevronLeftIcon fontSize="large" />
             </IconButton>
           </div>
           <Divider />
