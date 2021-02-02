@@ -26,10 +26,19 @@ class App extends Component {
     this.deletePalette = this.deletePalette.bind(this);
   }
 
+  // findPalette(id) {
+  //   const q = this.state.myPalettes.find(function (palette) {
+  //     return palette.id === id.toLowerCase();
+  //   });
+  //   if (q) {
+  //     return q;
+  //   } else return "not found";
+  // }
+
   findPalette(id) {
-    return this.state.myPalettes.find(function (palette) {
-      return palette.id === id.toLowerCase();
-    });
+    return this.state.myPalettes.find(
+      (palette) => palette.id === id.toLowerCase()
+    );
   }
 
   storeInLocalStorage() {
@@ -81,6 +90,7 @@ class App extends Component {
                     </Page>
                   )}
                 />
+
                 <Route
                   exact
                   path="/"
@@ -98,6 +108,23 @@ class App extends Component {
                 <Route
                   exact
                   path="/palette/:id"
+                  render={(routeProps) => {
+                    const foundPalette = this.findPalette(
+                      routeProps.match.params.id
+                    );
+                    if (foundPalette) {
+                      return (
+                        <Page>
+                          <Palette p={generatePalette(foundPalette)} />
+                        </Page>
+                      );
+                    } else return <FourZeroFour />;
+                  }}
+                />
+
+                {/* <Route
+                  exact
+                  path="/palette/:id"
                   render={(routeProps) => (
                     <Page>
                       <Palette
@@ -107,8 +134,28 @@ class App extends Component {
                       />
                     </Page>
                   )}
+                /> */}
+                <Route
+                  exact
+                  path="/palette/:paletteId/:colorId"
+                  render={(routeProps) => {
+                    const foundPalette = this.findPalette(
+                      routeProps.match.params.paletteId
+                    );
+                    if (foundPalette) {
+                      return (
+                        <Page>
+                          <SingleColorShades
+                            colorId={routeProps.match.params.colorId}
+                            palette={generatePalette(foundPalette)}
+                          />
+                        </Page>
+                      );
+                    } else return <FourZeroFour />;
+                  }}
                 />
 
+                {/* 
                 <Route
                   exact
                   path="/palette/:paletteId/:colorId"
@@ -122,7 +169,8 @@ class App extends Component {
                       />
                     </Page>
                   )}
-                />
+                /> */}
+
                 <Route component={FourZeroFour} />
               </Switch>
             </CSSTransition>

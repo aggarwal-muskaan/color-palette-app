@@ -1,4 +1,5 @@
-// import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 // export default class FourZeroFour extends Component {
 //   render() {
@@ -21,8 +22,13 @@ function FourZeroFour() {
     >
       <code>Error:404</code>
       <section>
-        <span>😑</span>Not Found!!!<span>😑</span>
+        <span>😑</span>Requested URL Not Found!!!<span>😑</span>
       </section>
+      <Link to="/">
+        <Button variant="contained" color="secondary">
+          Take me Back
+        </Button>
+      </Link>
     </h1>
   );
 }
