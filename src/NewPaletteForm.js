@@ -32,6 +32,17 @@ class NewPaletteForm extends Component {
       open: true,
     };
   }
+  componentDidMount() {
+    window.addEventListener("resize", this.resize.bind(this));
+    this.resize();
+  }
+
+  resize() {
+    if (window.innerWidth <= 450) {
+      this.setState({ open: false });
+    }
+    // this.setState({hideNav: window.innerWidth <= 760});
+  }
 
   // ! here binding is not done in Constructor
   handleDrawerOpen = () => {
