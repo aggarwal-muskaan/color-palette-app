@@ -16,7 +16,7 @@ const style = {
   box: {
     width: "20%",
     // TODO: fix height ,parent element
-    height: "25%",
+    height: "23%",
     margin: "0 auto",
     display: "inline-block",
     position: "relative",
