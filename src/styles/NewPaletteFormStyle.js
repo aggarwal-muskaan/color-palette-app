@@ -25,7 +25,7 @@ const styles = (theme) => ({
     alignItems: "center",
     padding: "0 8px",
     ...theme.mixins.toolbar,
-    justifyContent: "flex-end",
+    // justifyContent: "flex-end",
   },
   content: {
     height: `calc(100vh-${navHeight}px)`,
