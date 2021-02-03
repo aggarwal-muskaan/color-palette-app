@@ -6,7 +6,7 @@ const navHeight = NAV_HEIGHT;
 const styles = (theme) => ({
   root: {
     display: "flex",
-    // height: "100vh",
+    height: "100vh",
   },
 
   drawer: {

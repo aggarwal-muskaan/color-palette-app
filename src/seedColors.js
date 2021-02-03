@@ -1,8 +1,8 @@
-import ReactCountryFlag from "react-country-flag";
+// import ReactCountryFlag from "react-country-flag";
 // have to use this package as Microsoft's emoji font deliberately does not support any flags.
-function getEmoji(code) {
-  return <ReactCountryFlag countryCode={code} svg />;
-}
+// function getEmoji(code) {
+//   return <ReactCountryFlag countryCode={code} svg />;
+// }
 const seedColors = [
   {
     paletteName: "Material UI Colors",
@@ -60,8 +60,8 @@ const seedColors = [
   {
     paletteName: "Flat UI Colors Dutch",
     id: "flat-ui-colors-dutch",
-    // emoji: "🇳🇱",
-    emoji: getEmoji("NL"),
+    emoji: "🦚",
+    // emoji: getEmoji("NL"),
     colors: [
       { name: "Sunflower", color: "#FFC312" },
       { name: "Energos", color: "#C4E538" },
@@ -88,7 +88,8 @@ const seedColors = [
   {
     paletteName: "Flat UI Colors American",
     id: "flat-ui-colors-american",
-    emoji: getEmoji("US"),
+    emoji: "💛",
+    // emoji: getEmoji("US"),
     colors: [
       { name: "LightGreenishBlue", color: "#55efc4" },
       { name: "FadedPoster", color: "#81ecec" },
@@ -115,7 +116,7 @@ const seedColors = [
   {
     paletteName: "Flat UI Colors Aussie",
     id: "flat-ui-colors-aussie",
-    emoji: getEmoji("AU"),
+    emoji: "✨",
     colors: [
       { name: "Beekeeper", color: "#f6e58d" },
       { name: "SpicedNectarine", color: "#ffbe76" },
@@ -142,7 +143,8 @@ const seedColors = [
   {
     paletteName: "Flat UI Colors British",
     id: "flat-ui-colors-british",
-    emoji: getEmoji("GB"),
+    emoji: "🩸",
+    // emoji: getEmoji("GB"),
     colors: [
       { name: "ProtossPylon", color: "#00a8ff" },
       { name: "Periwinkle", color: "#9c88ff" },
@@ -169,7 +171,8 @@ const seedColors = [
   {
     paletteName: "Flat UI Colors Spanish",
     id: "flat-ui-colors-spanish",
-    emoji: getEmoji("ES"),
+    // emoji: getEmoji("ES"),
+    emoji: "🐥",
     colors: [
       { name: "JacksonsPurple", color: "#40407a" },
       { name: "C64Purple", color: "#706fd3" },
@@ -196,7 +199,8 @@ const seedColors = [
   {
     paletteName: "Flat UI Colors Indian",
     id: "flat-ui-colors-indian",
-    emoji: getEmoji("IN"),
+    // emoji: getEmoji("IN"),
+    emoji: "🔆",
     colors: [
       { name: "OrchidOrange", color: "#FEA47F" },
       { name: "SpiroDiscoBall", color: "#25CCF7" },
@@ -223,7 +227,8 @@ const seedColors = [
   {
     paletteName: "Flat UI Colors French",
     id: "flat-ui-colors-french",
-    emoji: getEmoji("FR"),
+    // emoji: getEmoji("FR"),
+    emoji: "💖",
     colors: [
       { name: "FlatFlesh", color: "#fad390" },
       { name: "MelonMelody", color: "#f8c291" },
