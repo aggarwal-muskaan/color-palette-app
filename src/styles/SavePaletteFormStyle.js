@@ -22,6 +22,7 @@ const style = (theme) => ({
     flexDirection: "row",
     justifyContent: "space-between",
     height: NAV_HEIGHT,
+    backgroundColor: "#C9A4A0", //rosy brown pastel color
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,

@@ -1,7 +1,9 @@
 const styles = {
   root: {
-    backgroundColor: "white",
-    border: "1px solid black",
+    // backgroundColor: "#E7B7A6",
+    backgroundColor: "#F2E2E3",
+    border: "1px solid grey",
+    boxShadow: "0 8px 6px -6px black",
     borderRadius: "5px",
     padding: "0.5rem",
     position: "relative",
