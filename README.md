@@ -3,15 +3,18 @@
 ## About
 
 I have made this project from Colt Steele's course on Modern React Bootcamp.  
-I have used class-based components along with React libraries.
-**_The app provides you with some palettes and a option to make your own._**
+I have used class-based components along with React libraries.  
+**_The app provides you with some palettes and a option to make your own._**  
+You can choose color format: hex-#fff, rgb(0,0,0) or rgba(255,255,255,0.4).
 
 ## Installation
+
+This command with clone the repo and install all dependencies required to run the application.
 
 ```bash
 git clone https://github.com/aggarwal-muskaan/color-palette-app.git
 cd [foldername]
-git npm
+npm install
 ```
 
 ## Libraries
