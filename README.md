@@ -64,4 +64,4 @@ When the onClick event is fired by clicking 'Create New Palette' link on homepag
 
 ### Contact
 
-Connect with me on [LinkedIn](https://www.linkedin.com/in/muskaan-aggarwal/) for collaboration.
+Connect with me on [LinkedIn](https://www.linkedin.com/in/muskaan-aggarwal-86236616b) for collaboration.
