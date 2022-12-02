@@ -55,13 +55,6 @@ The palette have a limit of 20 colors only.
 - Material-UI  
    And most importantly 😁, with the passion to learn and grow.
 
-## Style Issues 😥
-
-I tried hard to reslove style bugs from this app.  
-Love to listen solution if you have one.  
-When the onClick event is fired by clicking 'Create New Palette' link on homepage's navbar, it deforms the styling on homepage.  
-(Like, Height of Navbar get decrease & delete icon on Minipalettes get disappear)
-
 ### Contact
 
 Connect with me on [LinkedIn](https://www.linkedin.com/in/muskaan-aggarwal-86236616b) for collaboration.
